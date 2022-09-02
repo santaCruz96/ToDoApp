@@ -1,0 +1,10 @@
+.addButton {
+  margin-left: 0.5rem;
+}
+
+.buttonsBlock {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  justify-content: space-between;
+}
