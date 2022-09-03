@@ -4,12 +4,6 @@ import { addTodo, changeFilter } from "../../store/actions/creators/todo";
 
 import styles from "./index.module.css";
 
-const BUTTONS = [
-  {name: "all", label: "Все"},
-  {name: "active", label: "Невыполненные"},
-  {name: "done", label: "Выполненные"},
-]
-
 export const AddTodo = () => {
   const dispatch = useDispatch();
   const [value, setValue] = useState("");
@@ -32,9 +26,9 @@ export const AddTodo = () => {
         Добавить туду
       </button>
       <div className={styles.buttonsBlock}>
-        {BUTTONS.map(({name, label}) => (
-          <button type="button" key={name} onClick={() => dispatch(changeFilter({name}))}>{label}</button>
-        ))}
+          <button type="button" key="all" onClick={() => dispatch(changeFilter("all"))}>Все</button>
+          <button type="button" key="active" onClick={() => dispatch(changeFilter("active"))}>Невыполненные</button>
+          <button type="button" key="done" onClick={() => dispatch(changeFilter("done"))}>Выполненные</button>
       </div>
     </div>
   );

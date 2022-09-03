@@ -77,6 +77,7 @@ export default function todoReducer(state = initialState, action) {
     case CHANGE_FILTER: {
       const { filter } = action.payload;
 
+
       return {
         ...state, 
 
