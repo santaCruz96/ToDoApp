@@ -52,17 +52,15 @@ export default function todoReducer(state = initialState, action) {
       
     case DELETE_TODO: {
       const { id } = action.payload;
+      const { allIds } = state;
+      const { byIds } = state;
 
-      const index = state.allIds.findIndex((el) => el === id)
+      const index = allIds.findIndex((el) => el === id)
 
-      const beforeAllIds = state.allIds.slice(0, index)
-      const afterAllIds = state.allIds.slice(index + 1)
-      const newAllIds = [...beforeAllIds, ...afterAllIds]
+      const newAllIds = [...allIds.slice(0, index), ...allIds.slice(index + 1)]
 
-      const byIdsArr = Object.entries(state.byIds)
-      const beforeByIds = byIdsArr.slice(0, index)
-      const afterByIds = byIdsArr.slice(index + 1)
-      const newByIds = Object.fromEntries([...beforeByIds, ...afterByIds])
+      const byIdsArr = Object.entries(byIds)
+      const newByIds = Object.fromEntries([...byIdsArr.slice(0, index), ...byIdsArr.slice(index + 1)])
 
       return {
         ...state,

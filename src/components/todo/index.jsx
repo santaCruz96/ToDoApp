@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { filterSelector } from "../../store/selectors/todo";
 import cx from "classnames";
 
 import { deleteTodo, toggleTodo } from "../../store/actions/creators/todo";
@@ -8,7 +9,7 @@ import styles from "./index.module.css";
 
 export const Todo = ({ todo }) => {
   const dispatch = useDispatch();
-  const filters = useSelector((store) => store.todo.filters);
+  const filters = useSelector(filterSelector);
 
   const toggleTodoItem = () => {
     dispatch(toggleTodo(todo.id));
